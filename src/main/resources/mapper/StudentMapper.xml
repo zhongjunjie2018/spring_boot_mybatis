@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zjj.spring.dao.StudentMapper" >
+
+  <resultMap id="BaseResultMap" type="com.zjj.spring.model.Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
+  </resultMap>
+
+  <sql id="Base_SQL">
+      id,name,score
+  </sql>
+
+  <insert id="insertStudent">
+      INSERT INTO
+         student(name,score)
+      VALUES
+         (#{name},#{score})
+  </insert>
+
+    <delete id="deleteStudent">
+        DELETE FROM student
+          WHERE name = #{name}
+    </delete>
+
+</mapper>
